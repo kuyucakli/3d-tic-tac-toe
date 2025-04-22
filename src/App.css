@@ -1,0 +1,40 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 80px 1fr 80px;
+  grid-template-areas:
+    ". . . . a a"
+    "board board board board board board"
+    "c c c c c c";
+  height: 100vh;
+}
+
+#section-board {
+  grid-area: board;
+}
+
+#nav-secondary {
+  grid-area: a;
+}
+
+#board {
+  border: 1px solid red;
+  max-width: 800px;
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
