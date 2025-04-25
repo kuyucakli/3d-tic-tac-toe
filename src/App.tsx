@@ -6,11 +6,12 @@ import BoardHeader from './components/BoardHeader';
 import PieceX from "./assets/img/piece-x.svg";
 import PieceO from "./assets/img/piece-o.svg";
 import CanvasFx from './components/CanvasFx';
+import type { Board, SquarePiece } from './types/index.dt.ts';
+import { Move } from './types/index.dt.ts';
+
 
 function TicTacToe() {
   const squarePieceRowCount = 3;
-
-
 
   return (
     <main>
@@ -24,17 +25,7 @@ function TicTacToe() {
     </main>
   )
 }
-enum Move {
-  X,
-  O,
-}
 
-type Board = {
-  squarePieceRowCount: number
-  onMove: () => null
-}
-
-type SquarePiece = { content: Move, index: number }
 
 
 const Board = ({ squarePieceRowCount, onMove }: Board) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Move } from './App';
+import { Move } from '../types/index.dt.ts';
 
 interface BoardHeaderProps {
     currentMove: Move;
