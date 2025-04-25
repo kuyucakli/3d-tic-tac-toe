@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import NavSecondary from './components/NavSecondary'
+import BoardHeader from './components/BoardHeader';
 
 import PieceX from "./assets/img/piece-x.svg";
 import PieceO from "./assets/img/piece-o.svg";
@@ -42,7 +43,6 @@ const Board = ({ squarePieceRowCount, onMove }: Board) => {
   const currentMove = historyIndex % 2 ? Move.O : Move.X;
 
   const handleMove = (index: number) => {
-
     if (moveHistory[historyIndex][index] !== null) return;
 
     const newHistorySegment = [...moveHistory[historyIndex]];
@@ -51,17 +51,16 @@ const Board = ({ squarePieceRowCount, onMove }: Board) => {
 
     setMoveHistory(newHistory);
     setHistoryIndex(historyIndex + 1);
-
-  }
+  };
 
   return (
     <>
-      <header className="margin-center">
-        <h2 className="displaysmall">Player <span style={{ color: "var(--clr-accent-1" }}>{Move[currentMove]}</span></h2>
-      </header>
+      <BoardHeader currentMove={currentMove} />
       <div id="board" className="margin-center m-v-sm-1">
         <CanvasFx />
-        <div id="board-surface" style={{ gridTemplateColumns: `repeat(${squarePieceRowCount}, 1fr)` }}
+        <div
+          id="board-surface"
+          style={{ gridTemplateColumns: `repeat(${squarePieceRowCount}, 1fr)` }}
           onClick={(e) => {
             onMove();
 
@@ -72,21 +71,20 @@ const Board = ({ squarePieceRowCount, onMove }: Board) => {
             const index = Number(e.target.dataset.index);
 
             handleMove(index);
-
-
-          }}>
-          {
-            moveHistory[historyIndex].map((m, i) => (
-              <SquarePiece key={i} content={m} index={i} />
-            ))
-          }
+          }}
+        >
+          {moveHistory[historyIndex].map((m, i) => (
+            <SquarePiece key={i} content={m} index={i} />
+          ))}
         </div>
         <div id="board-blend-filter"></div>
-
       </div>
       <ul>
-        {moveHistory.map((_, i) => <li onClick={() => setHistoryIndex(i)}>Go to {i == 0 ? "start" : "#" + i}</li>)}
-
+        {moveHistory.map((_, i) => (
+          <li onClick={() => setHistoryIndex(i)}>
+            Go to {i == 0 ? "start" : "#" + i}
+          </li>
+        ))}
       </ul>
     </>
   )
