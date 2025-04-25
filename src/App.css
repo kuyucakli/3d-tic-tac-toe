@@ -9,19 +9,124 @@ main {
   height: 100vh;
 }
 
-#section-board {
-  grid-area: board;
+header {
+  max-width: var(--board-max-width);
+  height: 32px;
+  color: #537b7e;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f0f7fb 0%, #b5c59b 100%);
 }
 
 #nav-secondary {
   grid-area: a;
 }
 
+#section-board {
+  grid-area: board;
+}
+
 #board {
-  border: 1px solid red;
-  max-width: 800px;
-  height: 100%;
+  max-width: var(--board-max-width);
+  position: relative;
   aspect-ratio: 1;
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    #eeeae6 1.03%,
+    #daf7a8 0.06%,
+    #9db7c8 76.53%,
+    #ffef5b 99.8%
+  );
+  box-shadow: 0px 10px 13.9px 1px rgba(181, 136, 0, 0.58);
+  overflow: hidden;
+}
+
+#board-surface {
+  margin: 4px;
+  aspect-ratio: 1;
+  display: grid;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#board-blend-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: linear-gradient(161deg, #2a1c1c 4.99%, #585e4a 79.73%);
+  mix-blend-mode: hue;
+  pointer-events: none;
+}
+
+.square-piece {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px dotted var(--clr-primary-outline);
+  border-left: none;
+  border-top: none;
+  cursor: pointer;
+  background: linear-gradient(
+    180deg,
+    #d7d0be -24.79%,
+    #e7d4ba -9.26%,
+    #bfb792 99.43%
+  );
+
+  box-shadow: 0px 1px 4px 0px #c2ef83 inset;
+}
+.square-piece > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + 1px), calc(-50% + 2px));
+}
+.square-piece::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 60px;
+  aspect-ratio: 1/1;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #e9b416 0%, #ffd755 100%);
+  box-shadow: 0px 1px 8px 1px #b5a000 inset;
+  filter: blur(0.10000000149011612px);
+}
+
+.square-piece:last-child {
+  border: none;
+}
+
+#nav-secondary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 48px;
+  height: 400px;
+  border-radius: 8px 0px 0px 0px;
+  border: 1px solid #000;
+  background: linear-gradient(0deg, #2d393d 33.5%, #1b202a 100%);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+#canvas-fx {
+  width: var(--board-max-width);
+  aspect-ratio: 1/1;
+  border: 1px solid red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 @keyframes logo-spin {

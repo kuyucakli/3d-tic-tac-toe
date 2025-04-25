@@ -1,3 +1,10 @@
-# 3d Tic Tac Toe
+# 3d Tic Tac Toe Game
 
-A minimalistic tic tac toe game.
+Tic tac toe game.
+
+- Css only 3d
+- Local storage
+- Audio
+- Game effects ( canvas )
+
+- vitest tests

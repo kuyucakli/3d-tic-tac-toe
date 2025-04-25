@@ -8,6 +8,9 @@ const NavSecondary = () => {
                 <li>
                     <a href="#">Audio</a>
                 </li>
+                <li>
+                    <a href="#">Info</a>
+                </li>
             </ul>
         </nav>
     );

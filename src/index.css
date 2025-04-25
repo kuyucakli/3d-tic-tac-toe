@@ -6,17 +6,33 @@
 
   a {
     font-weight: 500;
-    color: #646cff;
+    color: inherit;
     text-decoration: inherit;
   }
   a:hover {
     color: #535bf2;
+  }
+
+  ul,
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 }
 
 @layer base {
   body {
     min-height: 100vh;
+    background: linear-gradient(
+      181deg,
+      #ffd52e 7.78%,
+      #c1bf8e 40.03%,
+      #e5ca81 70.88%,
+      #c7c559 93.03%
+    );
+
+    background-blend-mode: plus-lighter, normal;
   }
 
   :root {
@@ -32,6 +48,23 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    --clr-primary-outline: pink;
+    --clr-accent-1: #e90c0c;
+
+    --board-max-width: 480px;
+  }
+}
+
+@layer utils {
+  .margin-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .m-v-sm-1 {
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 }
 
@@ -65,4 +98,158 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.roboto-condensed {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: regular;
+  font-style: normal;
+}
+
+.rubik-broken-fax-regular {
+  font-family: "Rubik Broken Fax", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.displaylarge {
+  font-family: "Rubik Broken Fax", system-ui;
+  font-size: 57px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.12;
+  letter-spacing: -0.25px;
+}
+.displaymedium {
+  font-family: "Rubik Broken Fax", system-ui;
+  font-size: 45px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.16;
+  letter-spacing: normal;
+}
+.displaysmall {
+  font-family: "Rubik Broken Fax", system-ui;
+  font-size: 36px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+}
+.headlinelarge {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 32px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+}
+.headlinemedium,
+.post-detail h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+}
+.headlinesmall,
+.post-detail h3 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+}
+.titlelarge,
+.from-notion h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.27;
+  letter-spacing: normal;
+}
+.titlemedium {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+}
+.bodylarge {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+.titlesmall,
+.from-notion {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: 0.1px;
+}
+.labellarge {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: 0.1px;
+}
+.bodymedium,
+.post-detail h2 + ul {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: 0.25px;
+}
+.labelmedium {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: 0.5px;
+}
+.bodysmall {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: 0.4px;
+}
+.labelsmall {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.5px;
 }
