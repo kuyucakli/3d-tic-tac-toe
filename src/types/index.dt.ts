@@ -4,13 +4,17 @@ export enum Move {
 }
 
 type Board = {
-    squarePieceRowCount: number
-    onMove: () => null
+    squarePieceRowCount?: number
+    onMove: (index: number) => void
+    historyIndex: number
+    moveHistory: Move[][]
 }
 
 type SquarePiece = { content: Move, index: number }
 
 
 
+type HistoryProps = { moveHistory: Move[][], onHistoryChange: (index: number) => void }
 
-export type { Board, SquarePiece };
+
+export type { Board, SquarePiece, HistoryProps };
