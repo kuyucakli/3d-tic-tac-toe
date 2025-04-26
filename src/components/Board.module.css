@@ -1,4 +1,4 @@
-#board {
+.Board {
   max-width: var(--board-max-width);
   position: relative;
   aspect-ratio: 1;
@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-#board-surface {
+.BoardSurface {
   margin: 4px;
   aspect-ratio: 1;
   display: grid;
@@ -22,7 +22,7 @@
   overflow: hidden;
 }
 
-#board-blend-filter {
+.BoardBlendFilter {
   position: absolute;
   top: 0;
   left: 0;
@@ -34,7 +34,7 @@
   pointer-events: none;
 }
 
-.square-piece {
+.SquarePiece {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,13 +52,13 @@
 
   box-shadow: 0px 1px 4px 0px #c2ef83 inset;
 }
-.square-piece > img {
+.SquarePiece > img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(calc(-50% + 1px), calc(-50% + 2px));
 }
-.square-piece::before {
+.SquarePiece::before {
   content: "";
   display: block;
   width: 60px;
@@ -70,7 +70,7 @@
   filter: blur(0.10000000149011612px);
 }
 
-.square-piece:last-child {
+.SquarePiece:last-child {
   border: none;
 }
 
