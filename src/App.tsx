@@ -1,13 +1,10 @@
-import { useState } from 'react'
 import './App.css'
+import { useState } from 'react'
 import NavSecondary from './components/NavSecondary'
 import BoardHeader from './components/BoardHeader';
-
-import PieceX from "./assets/img/piece-x.svg";
-import PieceO from "./assets/img/piece-o.svg";
-import CanvasFx from './components/CanvasFx';
-import type { Board, HistoryProps, SquarePiece } from './types/index.dt.ts';
+import type { HistoryProps } from './types/index.dt.ts';
 import { Move } from './types/index.dt.ts';
+import Board from './components/Board.tsx';
 
 
 function TicTacToe() {
@@ -45,41 +42,10 @@ function TicTacToe() {
 }
 
 
-const Board = ({ squarePieceRowCount, onMove, historyIndex, moveHistory }: Board) => {
-
-  return (
-    <div id="board" className="margin-center m-v-sm-1">
-      <CanvasFx />
-      <div
-        id="board-surface"
-        style={{ gridTemplateColumns: `repeat(${squarePieceRowCount}, 1fr)` }}
-        onClick={(e) => {
-
-          if (!(e.target instanceof HTMLDivElement)) {
-            return;
-          }
-
-          const index = Number(e.target.dataset.index);
-
-          onMove(index);
-        }}
-      >
-        {moveHistory[historyIndex].map((m, i) => (
-          <SquarePiece key={i} content={m} index={i} />
-        ))}
-      </div>
-      <div id="board-blend-filter"></div>
-    </div>
-  )
-}
 
 
-const SquarePiece = ({ content, index }: SquarePiece) => (
-  <div className="square-piece" data-index={index}>
-    {Move[content] === "X" && <img src={PieceX} alt="X" />}
-    {Move[content] === "O" && <img src={PieceO} alt="O" />}
-  </div>
-)
+
+
 
 const History = ({ moveHistory, onHistoryChange }: HistoryProps) => (
   <ul>
