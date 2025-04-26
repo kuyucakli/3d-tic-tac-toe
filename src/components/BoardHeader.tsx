@@ -7,7 +7,7 @@ interface BoardHeaderProps {
 
 const BoardHeader: React.FC<BoardHeaderProps> = ({ currentMove }) => (
     <header className="margin-center">
-        <h2 className="displaysmall">
+        <h2 className="headlinesmall">
             Player <span style={{ color: "var(--clr-accent-1" }}>{Move[currentMove]}</span>
         </h2>
     </header>

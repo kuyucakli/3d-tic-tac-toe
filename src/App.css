@@ -14,7 +14,9 @@ header {
   height: 32px;
   color: #537b7e;
   border-radius: 16px;
-  background: linear-gradient(180deg, #f0f7fb 0%, #b5c59b 100%);
+  background: linear-gradient(180deg, #f0f7fb 0%, #cfe6df 18%, #b5c59b 100%);
+  padding-left: var(--s-md-0);
+  padding-right: var(--s-md-0);
 }
 
 #nav-secondary {
@@ -121,7 +123,7 @@ header {
 #canvas-fx {
   width: var(--board-max-width);
   aspect-ratio: 1/1;
-  border: 1px solid red;
+
   position: absolute;
   top: 0;
   left: 0;

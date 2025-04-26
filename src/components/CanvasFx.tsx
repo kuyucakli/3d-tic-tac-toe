@@ -15,9 +15,10 @@ const CanvasFx = () => {
             ctx.current = canvas.getContext("2d");
 
             if (ctx.current) {
-                ctx.current.fillStyle = "white";
-                ctx.current.font = "30px Arial";
-                ctx.current.fillText("Hello World", 10, 50);
+                ctx.current.beginPath();
+                ctx.current.moveTo(10, 100);
+                ctx.current.quadraticCurveTo(250, 170, 230, 20);
+                ctx.current.stroke();
             }
         }
     }
