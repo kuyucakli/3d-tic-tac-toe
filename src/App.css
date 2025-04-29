@@ -27,8 +27,6 @@ header {
   grid-area: board;
 }
 
-
-
 #nav-secondary {
   display: flex;
   justify-content: space-between;
@@ -55,6 +53,7 @@ header {
   left: 0;
   z-index: 1;
   pointer-events: none;
+  mix-blend-mode: plus-lighter;
 }
 
 @keyframes logo-spin {

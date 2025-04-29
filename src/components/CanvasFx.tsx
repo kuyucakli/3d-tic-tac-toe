@@ -1,10 +1,31 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { GameInfoContext } from "../context/GameInfoContext";
+import { useAnimationFrame } from "../hooks/useAnimation";
+import { drawBezierSplit, drawWinnerStroke } from "../utils";
+
+let m = 0;
 
 const CanvasFx = () => {
 
-
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const ctx = useRef<CanvasRenderingContext2D | null>(null);
+    const winner = useContext(GameInfoContext).winner;
+
+
+    useEffect(() => {
+
+        if (winner && ctx.current) {
+            const [a, b, c] = winner;
+            const centerA = squarePieceCenter(a);
+            const centerB = squarePieceCenter(b);
+            const centerC = squarePieceCenter(c);
+
+
+            drawWinnerStroke(ctx.current, [centerA, centerB, centerC]);
+
+        }
+    }, [winner]);
+
 
 
     useEffect(() => {
@@ -14,12 +35,8 @@ const CanvasFx = () => {
             canvas.height = 480;
             ctx.current = canvas.getContext("2d");
 
-            if (ctx.current) {
-                ctx.current.beginPath();
-                ctx.current.moveTo(10, 100);
-                ctx.current.quadraticCurveTo(250, 170, 230, 20);
-                ctx.current.stroke();
-            }
+
+
         }
     }
         , []);
@@ -28,6 +45,17 @@ const CanvasFx = () => {
     return (
         <canvas id="canvas-fx" ref={canvasRef} />
     );
+}
+
+
+function squarePieceCenter(index: number) {
+    const row = Math.floor(index / 3);
+    const col = index % 3;
+
+    const x = col * 160 + 80;
+    const y = row * 160 + 80;
+
+    return { x, y };
 }
 
 export default CanvasFx;

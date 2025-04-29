@@ -10,11 +10,8 @@ type Board = {
     moveHistory: Move[][]
 }
 
-type SquarePiece = { content: Move, index: number }
-
-
+type SquarePiece = { content: Move, index: number, className: string }
 
 type HistoryProps = { moveHistory: Move[][], onHistoryChange: (index: number) => void }
-
 
 export type { Board, SquarePiece, HistoryProps };

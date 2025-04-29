@@ -4,8 +4,8 @@ import PieceO from "../assets/img/piece-o.svg";
 import type { SquarePiece } from "../types/index.dt";
 import styles from "./Board.module.css";
 
-const SquarePiece = ({ content, index }: SquarePiece) => (
-    <div className={styles.SquarePiece} data-index={index}>
+const SquarePiece = ({ content, index, className }: SquarePiece) => (
+    <div className={`${styles.SquarePiece} ${className}`} data-index={index}>
         {Move[content] === "X" && <img src={PieceX} alt="X" />}
         {Move[content] === "O" && <img src={PieceO} alt="O" />}
     </div>
