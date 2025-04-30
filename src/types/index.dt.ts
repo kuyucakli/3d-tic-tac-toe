@@ -3,6 +3,13 @@ export enum Move {
     O,
 }
 
+export enum AudioCategory {
+    INTRO = "intro",
+    WINNER_STROKE = "winner_stroke",
+    MAKE_MOVE = "make_move",
+    GAME_OVER = "game_over",
+}
+
 type Board = {
     squarePieceRowCount?: number
     onMove: (index: number) => void

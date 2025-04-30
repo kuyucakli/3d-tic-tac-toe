@@ -1,9 +1,9 @@
 import { useContext, useEffect, useRef } from "react";
 import { GameInfoContext } from "../context/GameInfoContext";
-import { useAnimationFrame } from "../hooks/useAnimation";
-import { drawBezierSplit, drawWinnerStroke } from "../utils";
 
-let m = 0;
+import { drawWinnerStroke } from "../utils";
+
+
 
 const CanvasFx = () => {
 

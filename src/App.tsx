@@ -1,6 +1,5 @@
 import './App.css'
 import { useState } from 'react'
-import AudioPlayer from './components/AudioPlayer.tsx';
 import NavSecondary from './components/NavSecondary'
 import BoardHeader from './components/BoardHeader';
 import type { HistoryProps } from './types/index.dt.ts';
@@ -8,7 +7,8 @@ import { Move } from './types/index.dt.ts';
 import Board from './components/Board.tsx';
 import { checkWinner } from './utils/index.ts';
 import { GameInfoContext } from './context/GameInfoContext.ts';
-
+import useAudio from './hooks/useAudio.ts';
+import introSound from './assets/audio/01.mp3'
 
 
 function TicTacToe() {
@@ -18,7 +18,7 @@ function TicTacToe() {
   const currentMove = historyIndex % 2 ? Move.O : Move.X;
   const winner = checkWinner(moveHistory[historyIndex]);
 
-
+  const playSound = useAudio({ intro: introSound, make_move: introSound, winner_stroke: introSound, game_over: introSound });
 
 
   const handleMove = (index: number) => {
@@ -39,8 +39,6 @@ function TicTacToe() {
 
   return (
     <main>
-   
-      <AudioPlayer />
       <NavSecondary />
       <GameInfoContext value={{ winner }}>
         <section id="section-board">
