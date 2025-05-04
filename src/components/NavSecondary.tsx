@@ -1,15 +1,19 @@
+import { Link } from "@tanstack/react-router";
+
+Link
+
 const NavSecondary = () => {
     return (
         <nav id="nav-secondary">
             <ul>
                 <li>
-                    <a href="#">History</a>
+                    <Link to="/game/$sceneId" params={{ sceneId: "history" }}>History</Link>
                 </li>
                 <li>
-                    <a href="#">Audio</a>
+                    <Link to="/game/$sceneId" params={{ sceneId: "settings" }}>Audio</Link>
                 </li>
                 <li>
-                    <a href="#">Info</a>
+                    <Link to="/game/$sceneId" params={{ sceneId: "info" }}>Info</Link>
                 </li>
             </ul>
         </nav>

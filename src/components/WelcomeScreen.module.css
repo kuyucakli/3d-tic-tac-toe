@@ -1,0 +1,53 @@
+.WelcomeScreen {
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+}
+.WelcomeScreenCurtain {
+  content: "";
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: #222;
+  transform: translateY(-50%) rotateX(360deg) translateZ(-44px) rotateX(0deg);
+}
+
+.WelcomeScreen button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbit 6s linear;
+  animation-iteration-count: infinite;
+}
+
+.WelcomeScreenOut .WelcomeScreenCurtain {
+  animation: screen-out 2s forwards ease-in-out;
+}
+
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotateX(0deg) translateZ(44px)
+      rotateX(360deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(360deg) translateZ(44px)
+      rotateX(0deg);
+  }
+}
+
+@keyframes screen-out {
+  from {
+    height: 100vh;
+    filter: blur(2px);
+  }
+  to {
+    height: 0;
+    filter: blur(8px);
+  }
+}

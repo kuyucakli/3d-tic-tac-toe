@@ -1,25 +1,21 @@
 import './App.css'
-import { useState } from 'react'
-import NavSecondary from './components/NavSecondary'
 import BoardHeader from './components/BoardHeader';
-import type { HistoryProps } from './types/index.dt.ts';
 import { Move } from './types/index.dt.ts';
 import Board from './components/Board.tsx';
 import { checkWinner } from './utils/index.ts';
-import { GameInfoContext } from './context/GameInfoContext.ts';
-import useAudio from './hooks/useAudio.ts';
-import introSound from './assets/audio/01.mp3'
+import { useGameInfoContext } from './context/GameInfoContext.tsx';
+
+
+// import useAudio from './hooks/useAudio.ts';
+// import introSound from './assets/audio/01.mp3'
+
 
 
 function TicTacToe() {
-  const squarePieceRowCount = 3;
-  const [moveHistory, setMoveHistory] = useState<Move[][]>([Array(Math.pow(squarePieceRowCount, 2)).fill(null)]);
-  const [historyIndex, setHistoryIndex] = useState(0);
+  const { moveHistory, setMoveHistory, setHistoryIndex, historyIndex } = useGameInfoContext();
   const currentMove = historyIndex % 2 ? Move.O : Move.X;
-  const winner = checkWinner(moveHistory[historyIndex]);
-
-  const playSound = useAudio({ intro: introSound, make_move: introSound, winner_stroke: introSound, game_over: introSound });
-
+  
+  // const playSound = useAudio({ intro: introSound, make_move: introSound, winner_stroke: introSound, game_over: introSound });
 
   const handleMove = (index: number) => {
     if (moveHistory[historyIndex][index] !== null) return;
@@ -33,39 +29,33 @@ function TicTacToe() {
 
   };
 
-  const handleChangeHistory = (index: number) => {
-    setHistoryIndex(index)
-  }
+
+
+
 
   return (
-    <main>
-      <NavSecondary />
-      <GameInfoContext value={{ winner }}>
-        <section id="section-board">
-          <BoardHeader currentMove={currentMove} />
-          <Board onMove={handleMove} historyIndex={historyIndex} moveHistory={moveHistory} squarePieceRowCount={squarePieceRowCount} />
-        </section>
-      </GameInfoContext>
-      <History moveHistory={moveHistory} onHistoryChange={handleChangeHistory} />
+    <main className="welcome-mode">
+      <section id="section-board">
+        <BoardHeader currentMove={currentMove} />
+        <Board onMove={handleMove} moves={moveHistory[historyIndex]} squarePieceRowCount={3} />
+      </section>
+      {/* <History moveHistory={moveHistory} onHistoryChange={handleChangeHistory} /> */}
+
     </main>
   )
 }
 
 
 
-
-
-
-
-const History = ({ moveHistory, onHistoryChange }: HistoryProps) => (
-  <ul>
-    {moveHistory.map((_, i) => (
-      <li key={i} onClick={() => onHistoryChange(i)}>
-        Go to {i == 0 ? "start" : "#" + i}
-      </li>
-    ))}
-  </ul>
-)
+// const History = ({ moveHistory, onHistoryChange }: HistoryProps) => (
+//   <ul>
+//     {moveHistory.map((_, i) => (
+//       <li key={i} onClick={() => onHistoryChange(i)}>
+//         Go to {i == 0 ? "start" : "#" + i}
+//       </li>
+//     ))}
+//   </ul>
+// )
 
 
 

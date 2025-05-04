@@ -1,0 +1,7 @@
+.Dialog {
+  z-index: var(--z-dialog);
+}
+
+.Dialog::backdrop {
+  background-color: rgba(250, 128, 114, 0.611);
+}

@@ -3,6 +3,11 @@ export enum Move {
     O,
 }
 
+export enum LocalStorageKey {
+    MOVE_HISTORY = "moveHistory",
+    HISTORY_INDEX = "historyIndex",
+}
+
 export enum AudioCategory {
     INTRO = "intro",
     WINNER_STROKE = "winner_stroke",
@@ -13,12 +18,19 @@ export enum AudioCategory {
 type Board = {
     squarePieceRowCount?: number
     onMove: (index: number) => void
-    historyIndex: number
-    moveHistory: Move[][]
+    moves: Move[]
 }
 
 type SquarePiece = { content: Move, index: number, className: string }
 
 type HistoryProps = { moveHistory: Move[][], onHistoryChange: (index: number) => void }
 
-export type { Board, SquarePiece, HistoryProps };
+type GameInfoContextType = {
+    winner: number[] | null;
+    setMoveHistory: (val: Move[][]) => void;
+    moveHistory: Move[][];
+    setHistoryIndex: (index: number) => void;
+    historyIndex: number;
+};
+
+export type { Board, SquarePiece, HistoryProps, GameInfoContextType };

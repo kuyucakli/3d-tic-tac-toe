@@ -19,6 +19,7 @@
   margin: 4px;
   aspect-ratio: 1;
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   border-radius: 16px;
   overflow: hidden;
 }
@@ -134,9 +135,6 @@
   left: 0;
   animation: display-fade 0.8s ease-out infinite alternate forwards;
   opacity: 0;
-}
-
-.BoardHeader {
 }
 
 @keyframes square-piece-im {

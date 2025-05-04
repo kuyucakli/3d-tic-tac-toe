@@ -62,6 +62,12 @@
     --clr-accent-1: #e90c0c;
 
     --board-max-width: 480px;
+
+    --z-board: 1;
+    --z-nav-main: 999;
+    --z-welcome-screen: 1;
+    --z-canvas-fx: 1;
+    --z-dialog: 998;
   }
 }
 
@@ -74,6 +80,14 @@
   .m-v-sm-1 {
     margin-top: 8px;
     margin-bottom: 8px;
+  }
+
+  .full-screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 }
 
