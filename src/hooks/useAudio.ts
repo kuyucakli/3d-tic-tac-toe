@@ -9,10 +9,15 @@ function useAudio(audioFiles: Record<AudioCategory, string>) {
 
     const [buffersLoaded, setBuffersLoaded] = useState(false);
     const audioContextRef = useRef<AudioContext>(null);
+    const gainNodeRef = useRef<GainNode>(null)
 
     useEffect(() => {
         if (!audioContextRef.current) {
             audioContextRef.current = new AudioContext();
+            gainNodeRef.current = new GainNode(audioContextRef.current);
+            //gainNodeRef.current = audioContextRef.current.createGain();
+            gainNodeRef.current.gain.value = 0.05; // setting it to 10%
+            gainNodeRef.current.connect(audioContextRef.current.destination);
         }
 
         const loadBuffers = () => {
@@ -66,8 +71,9 @@ function useAudio(audioFiles: Record<AudioCategory, string>) {
 
         const trackSource = audioContextRef.current.createBufferSource();
         trackSource.buffer = audioBuffers.get(key)!; // Get the stored buffer
-        trackSource.connect(audioContextRef.current.destination);
-        trackSource.start();
+        //trackSource.connect(audioContextRef.current.destination);
+        trackSource.connect(gainNodeRef.current!);
+        trackSource.start(0);
     };
 
 

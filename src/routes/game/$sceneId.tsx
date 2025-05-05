@@ -24,9 +24,9 @@ function RouteComponent() {
     return (
 
         <Dialog isOpen={sceneId != "play" ? true : false} onClose={handleDialogClose}>
-            {sceneId == "info" && "Info"}
-            {sceneId == "settings" && "Settings"}
-            {sceneId == "history" && <History />}
+            {sceneId == "info" && <><h2 className="titlelarge">Info</h2><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, amet!</p></>}
+            {sceneId == "settings" && <><h2 className="titlelarge">Settings</h2><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, amet!</p></>}
+            {sceneId == "history" && <><h2 className="titlelarge">Move History</h2><History /></>}
         </Dialog>
 
     )

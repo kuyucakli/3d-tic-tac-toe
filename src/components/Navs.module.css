@@ -7,10 +7,15 @@
   border: 1px solid #000;
   background: linear-gradient(0deg, #2d393d 33.5%, #1b202a 100%);
   writing-mode: sideways-rl;
+  z-index: var(--z-nav-secondary);
 }
 
 .NavSecondary > ul {
   display: flex;
   justify-content: space-between;
   gap: 32px;
+}
+
+.NavSecondary {
+  text-transform: capitalize;
 }

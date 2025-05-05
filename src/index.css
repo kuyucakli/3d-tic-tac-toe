@@ -62,6 +62,7 @@
 
     --z-board: 1;
     --z-nav-main: 999;
+    --z-nav-secondary: 999;
     --z-welcome-screen: 1;
     --z-canvas-fx: 1;
     --z-dialog: 998;
@@ -87,8 +88,17 @@
     left: 0;
   }
 
+  .flex-row-v-center {
+    display: flex;
+    align-items: center;
+  }
+
   .f-w-600 {
     font-weight: 600;
+  }
+
+  .gap-sm-2 {
+    gap: var(--s-sm-2);
   }
 }
 
