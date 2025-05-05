@@ -31,6 +31,7 @@ type GameInfoContextType = {
     moveHistory: Move[][];
     setHistoryIndex: (index: number) => void;
     historyIndex: number;
+    playSound?: (key: AudioCategory) => void
 };
 
 export type { Board, SquarePiece, HistoryProps, GameInfoContextType };

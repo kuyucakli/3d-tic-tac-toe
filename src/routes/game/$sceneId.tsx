@@ -3,6 +3,7 @@ import Dialog from '../../components/Dialog'
 import History from '../../components/History';
 
 
+
 export const Route = createFileRoute('/game/$sceneId')({
     component: RouteComponent,
     notFoundComponent: () => {
@@ -13,6 +14,7 @@ export const Route = createFileRoute('/game/$sceneId')({
 function RouteComponent() {
     const { sceneId } = Route.useParams();
     const navigate = useNavigate();
+
 
     const handleDialogClose = () => {
         navigate({ to: "/game/$sceneId", params: { sceneId: "play" } });

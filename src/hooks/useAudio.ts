@@ -15,8 +15,6 @@ function useAudio(audioFiles: Record<AudioCategory, string>) {
             audioContextRef.current = new AudioContext();
         }
 
-
-
         const loadBuffers = () => {
             const promises = Object.entries(audioFiles).map(
                 ([key, url]) => new Promise(async (resolve) => {
@@ -53,10 +51,10 @@ function useAudio(audioFiles: Record<AudioCategory, string>) {
 
 
         loadBuffers();
-    });
+    }, []);
 
 
-    const playSoundInternal = (key: string) => {
+    const playSoundInternal = (key: AudioCategory) => {
         if (!audioContextRef.current || !audioBuffers.has(key)) return; // Double check
 
         // if (audioContext.state === 'suspended') {

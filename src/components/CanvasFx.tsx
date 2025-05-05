@@ -1,7 +1,8 @@
-import { useContext, useEffect, useRef } from "react";
-import { GameInfoContext } from "../context/GameInfoContext";
+import { useEffect, useRef } from "react";
+import { useGameInfoContext } from "../context/GameInfoContext";
 
 import { drawWinnerStroke } from "../utils";
+import { AudioCategory } from "../types/index.dt";
 
 
 
@@ -9,8 +10,8 @@ const CanvasFx = () => {
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const ctx = useRef<CanvasRenderingContext2D | null>(null);
-    const winner = useContext(GameInfoContext).winner;
-
+    const winner = useGameInfoContext().winner;
+    const { playSound } = useGameInfoContext();
 
     useEffect(() => {
 
@@ -20,7 +21,7 @@ const CanvasFx = () => {
             const centerB = squarePieceCenter(b);
             const centerC = squarePieceCenter(c);
 
-
+            playSound && playSound(AudioCategory.WINNER_STROKE);
             drawWinnerStroke(ctx.current, [centerA, centerB, centerC]);
 
         }

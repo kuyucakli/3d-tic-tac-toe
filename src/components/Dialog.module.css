@@ -1,7 +1,24 @@
 .Dialog {
   z-index: var(--z-dialog);
+  width: clamp(300px, 100vw, 600px);
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 8px;
+  position: relative;
 }
 
 .Dialog::backdrop {
-  background-color: rgba(250, 128, 114, 0.611);
+  background-color: rgba(173, 228, 189, 0.611);
+}
+
+.Dialog li {
+  padding: 16px;
+  border-bottom: 1px dotted gray;
+  cursor: pointer;
+}
+
+.Dialog > button {
+  position: absolute;
+  right: 16px;
+  top: 16px;
 }

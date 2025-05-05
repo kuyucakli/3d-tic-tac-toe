@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as GameSceneIdImport } from './routes/game/$sceneId'
+import { Route as GamePlayHistoryIndexImport } from './routes/game/play.$historyIndex'
 
 // Create/Update Routes
 
@@ -25,6 +26,12 @@ const IndexRoute = IndexImport.update({
 const GameSceneIdRoute = GameSceneIdImport.update({
   id: '/game/$sceneId',
   path: '/game/$sceneId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GamePlayHistoryIndexRoute = GamePlayHistoryIndexImport.update({
+  id: '/game/play/$historyIndex',
+  path: '/game/play/$historyIndex',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -46,6 +53,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GameSceneIdImport
       parentRoute: typeof rootRoute
     }
+    '/game/play/$historyIndex': {
+      id: '/game/play/$historyIndex'
+      path: '/game/play/$historyIndex'
+      fullPath: '/game/play/$historyIndex'
+      preLoaderRoute: typeof GamePlayHistoryIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -54,36 +68,41 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/game/$sceneId': typeof GameSceneIdRoute
+  '/game/play/$historyIndex': typeof GamePlayHistoryIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/game/$sceneId': typeof GameSceneIdRoute
+  '/game/play/$historyIndex': typeof GamePlayHistoryIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/game/$sceneId': typeof GameSceneIdRoute
+  '/game/play/$historyIndex': typeof GamePlayHistoryIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/game/$sceneId'
+  fullPaths: '/' | '/game/$sceneId' | '/game/play/$historyIndex'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/game/$sceneId'
-  id: '__root__' | '/' | '/game/$sceneId'
+  to: '/' | '/game/$sceneId' | '/game/play/$historyIndex'
+  id: '__root__' | '/' | '/game/$sceneId' | '/game/play/$historyIndex'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GameSceneIdRoute: typeof GameSceneIdRoute
+  GamePlayHistoryIndexRoute: typeof GamePlayHistoryIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GameSceneIdRoute: GameSceneIdRoute,
+  GamePlayHistoryIndexRoute: GamePlayHistoryIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,7 +116,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/game/$sceneId"
+        "/game/$sceneId",
+        "/game/play/$historyIndex"
       ]
     },
     "/": {
@@ -105,6 +125,9 @@ export const routeTree = rootRoute
     },
     "/game/$sceneId": {
       "filePath": "game/$sceneId.tsx"
+    },
+    "/game/play/$historyIndex": {
+      "filePath": "game/play.$historyIndex.tsx"
     }
   }
 }

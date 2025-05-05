@@ -23,27 +23,9 @@ header {
   grid-area: board;
 }
 
-#nav-secondary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-
-  height: 400px;
-  border-radius: 8px 0px 0px 0px;
-  border: 1px solid #000;
-  background: linear-gradient(0deg, #2d393d 33.5%, #1b202a 100%);
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-}
-
 #canvas-fx {
   width: var(--board-max-width);
   aspect-ratio: 1/1;
-
   position: absolute;
   top: 0;
   left: 0;
