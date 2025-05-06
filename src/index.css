@@ -55,8 +55,16 @@
     --s-md-0: 24px;
     --s-md-1: 32px;
     --s-md-2: 40px;
+
     --clr-primary-outline: pink;
     --clr-accent-1: #e90c0c;
+    --clr-surface-container-1: #2d393d;
+    --clr-surface-container-2: #1b202a;
+    --grd-1: linear-gradient(
+      0deg,
+      var(--clr-surface-container-1) 33.5%,
+      var(--clr-surface-container-2) 100%
+    );
 
     --board-max-width: 480px;
 

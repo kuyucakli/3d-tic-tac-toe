@@ -6,10 +6,10 @@ const History = () => {
     const { moveHistory, setHistoryIndex, historyIndex } = useGameInfoContext();
 
     return (
-        <ul>
+        <ul className="previous-moves-list">
             {moveHistory.map((_, i) => (
-                <li key={i} onClick={() => setHistoryIndex(i)} className="labellarge flex-row-v-center gap-sm-2 ">
-                    Go to {i == 0 ? "start" : "#" + i} {i == historyIndex ? <IconWest /> : ""}
+                <li key={i} onClick={() => setHistoryIndex(i)} className="labellarge flex-row-v-center gap-sm-2 " >
+                    <span className="label">Go to {i == 0 ? "start" : "#" + i}</span>  {i == historyIndex ? <span className="list-im"><IconWest /> </span> : ""}
                 </li>
             ))}
         </ul>

@@ -20,7 +20,7 @@
   justify-content: center;
   max-width: var(--board-max-width);
   height: 32px;
-  color: #537b7e;
+  color: #364960;
   border-radius: 8px;
   padding-left: var(--s-md-0);
   padding-right: var(--s-md-0);
@@ -106,7 +106,7 @@
 }
 
 .CurrentPlayerDisplay {
-  color: var(--clr-accent-1);
+  /* color: var(--clr-accent-1); */
   margin-left: var(--s-sm-1);
   position: relative;
   z-index: 1;

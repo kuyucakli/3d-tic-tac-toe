@@ -1,15 +1,13 @@
 .Dialog {
-  width: 25vw;
-  height: 300px;
+  background: var(--grd-1);
+  width: clamp(300px, 90%, 500px);
+  height: 100%;
   aspect-ratio: 1 / 1;
   border: none;
-  border-radius: 8px;
   position: fixed;
-
-  /* transform: translate(0, calc(100vh)); */
   margin-left: auto;
   margin-right: 0%;
-  padding: 32px 56px 32px 32px;
+  padding: 48px 56px 32px 40px;
   bottom: 0;
   right: 0;
   transition: transform 0.4s ease-in-out;
@@ -18,20 +16,20 @@
 
 .Dialog[data-is-modal="true"] {
   margin: auto;
-  background-color: transparent;
+  background: transparent;
   width: max-content;
   height: max-content;
   overflow: visible;
 }
 
 .Dialog[data-is-modal="true"]::backdrop {
-  background-color: rgba(129, 145, 134, 0.5);
+  background: rgba(129, 145, 134, 0.5);
   mix-blend-mode: difference;
 }
 
 .DialogOpen {
-  /* animation: slide-in 0.4s ease-in-out forwards;
-  transform: translate(0, calc(100vh)); */
+  animation: slide-in 0.4s ease-in-out forwards;
+  transform: translate(0, calc(100vh));
 }
 
 .DialogClose {
@@ -40,7 +38,7 @@
 }
 
 .Dialog::backdrop {
-  background-color: rgba(173, 228, 189, 0.4);
+  background: rgba(173, 228, 189, 0.4);
 }
 
 .Dialog li {
@@ -51,24 +49,25 @@
 
 .Dialog > button {
   position: absolute;
-  right: 16px;
+  left: 16px;
   top: 16px;
+  border: none;
 }
 
 @keyframes slide-in {
   0% {
-    transform: translate(0, calc(100vh));
+    transform: translate(100%, 0);
   }
   100% {
-    transform: translate(0, calc(100vh - 100%));
+    transform: translate(0, 0);
   }
 }
 
 @keyframes slide-out {
   0% {
-    transform: translate(0, calc(100vh + 100%));
+    transform: translate(0, 0);
   }
   100% {
-    transform: translate(0, calc(100vh));
+    transform: translate(100%, 0);
   }
 }

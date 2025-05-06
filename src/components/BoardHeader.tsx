@@ -2,6 +2,7 @@ import React from 'react';
 import { Move } from '../types/index.dt.ts';
 import styles from './Board.module.css';
 import { useGameInfoContext } from '../context/GameInfoContext.tsx';
+import { IconWest } from './Icons.tsx';
 
 interface BoardHeaderProps {
     currentMove: Move;
@@ -20,11 +21,13 @@ const BoardHeader: React.FC<BoardHeaderProps> = ({ currentMove }) => {
 
                     :
                     (
-                        <h2 className="headlinesmall">
+                        <h2 className="headlinelarge">
                             Player
 
                             <span className={styles.CurrentPlayerDisplay}>
-                                <span className={styles.CurrentPlayerDisplayActive}>{Move[currentMove]}
+                                <span className={styles.CurrentPlayerDisplayActive}>
+                                    {Move[currentMove]}
+
                                 </span>
                                 <ul key={Math.random()}>
                                     <li>🔥</li>

@@ -25,6 +25,29 @@ main {
   mix-blend-mode: plus-lighter;
 }
 
+.previous-moves-list > li {
+  height: 52px;
+}
+
+.previous-moves-list > li > .label {
+  display: inline-block;
+  width: 68px;
+}
+
+.previous-moves-list > li > .list-im {
+  animation: im-in-out 1s 0.2s ease-in-out alternate infinite;
+}
+
+@keyframes im-in-out {
+  0% {
+    transform: translateX(0);
+    filter: blur(1.2px);
+  }
+  100% {
+    transform: translateX(2%);
+  }
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

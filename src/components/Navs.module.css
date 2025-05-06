@@ -3,9 +3,9 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  border-radius: 8px 0px 0px 0px;
+  border-radius: 16px 0px 0px 0px;
   border: 1px solid #000;
-  background: linear-gradient(0deg, #2d393d 33.5%, #1b202a 100%);
+  background: var(--grd-1);
   writing-mode: sideways-rl;
   z-index: var(--z-nav-secondary);
   height: 100vh;

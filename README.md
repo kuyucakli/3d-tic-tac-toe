@@ -14,6 +14,13 @@ Tic tac toe game.
 - [] Refine intro
 - [] Dialog Placement
 - [] Current player indicator design
+- [] Settings panel close button positioning
+- [] Settings panel open close anim
+- [] Settings Panel borderradius problems
+- [] Settings panel responsiveness ( on mobile)
+- [] Settings Panel tab toggle
+- [] Settings panel outside click close?
+- [] Settings panel ???
 
 - [] Add winner intro
 - [] Info Content

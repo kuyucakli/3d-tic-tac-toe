@@ -32,7 +32,7 @@ const Dialog = ({ isOpen, isModal = false, hasCloseButton = true, onClose, child
     }, [isOpen])
 
     return (
-        <dialog ref={ref} className={styles.Dialog} data-is-modal={isModal}>
+        <dialog ref={ref} className={styles.Dialog} data-is-modal={isModal} >
             {hasCloseButton && <button onClick={() => {
                 onClose && onClose();
             }}>
