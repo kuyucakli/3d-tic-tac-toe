@@ -16,7 +16,7 @@ export const Route = createFileRoute('/game/$sceneId')({
 })
 
 function RouteComponent() {
-    const { replayGame, tie, winner, playSound } = useGameInfoContext();
+    const { resetGame, tie, winner, playSound } = useGameInfoContext();
     const { sceneId } = Route.useParams();
     const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ function RouteComponent() {
                 tie
                 &&
                 <Dialog isOpen isModal hasCloseButton={false}>
-                    <h1 className="displaylarge">Tie!!!</h1><button type="button" onClick={replayGame}>Replay</button>
+                    <h1 className="displaylarge">Tie!!!</h1><button type="button" onClick={resetGame}>Replay</button>
                 </Dialog>
             }
 
@@ -54,7 +54,7 @@ function RouteComponent() {
 
                 }}>
                     <WinnerAnim >
-                        <button type="button" onClick={replayGame} className="headlinelarge"
+                        <button type="button" onClick={resetGame} className="headlinelarge"
                         >Replay</button>
                     </WinnerAnim>
                 </Dialog>

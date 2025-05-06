@@ -1,9 +1,7 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./WelcomeScreen.module.css"
 import { useNavigate } from "@tanstack/react-router";
 import { useGameInfoContext } from "../context/GameInfoContext";
-import { AudioCategory } from "../types/index.dt";
-
 
 
 const WelcomeScreen = () => {
@@ -11,7 +9,12 @@ const WelcomeScreen = () => {
     const elRef = useRef(null);
     const [scene, setScene] = useState("In");
     const navigate = useNavigate();
+    const { resetGame, winner, tie } = useGameInfoContext();
 
+    useEffect(() => {
+        if (winner || tie) resetGame();
+
+    }, [])
 
     return (
         <div ref={elRef} id="welcome-screen" className={`${styles.WelcomeScreen} full-screen ${styles["WelcomeScreen" + scene]}`} >

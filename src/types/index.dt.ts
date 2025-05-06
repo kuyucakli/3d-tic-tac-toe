@@ -35,7 +35,7 @@ type GameInfoContextType = {
     setHistoryIndex: (index: number) => void;
     historyIndex: number;
     playSound?: (key: AudioCategory) => void
-    replayGame: () => void
+    resetGame: () => void
     tie: boolean
     currentMove: Move
 };

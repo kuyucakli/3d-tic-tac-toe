@@ -14,9 +14,11 @@ Tic tac toe game.
 - [] Refine intro
 - [] Dialog Placement
 - [] Add winner intro
-- [] Reset game creens ( restart )
+- [] Reset game screens ( restart )
 - [] Info Content
 - [] Audio mute
 - [] Remove console.log lines
-- [] Remove tanstack development component
+- [x] Remove tanstack development component
 - [] Check responsiveness
+
+

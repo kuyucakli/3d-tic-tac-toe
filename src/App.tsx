@@ -5,10 +5,6 @@ import Board from './components/Board.tsx';
 import { useGameInfoContext } from './context/GameInfoContext.tsx';
 
 
-
-
-
-
 function TicTacToe() {
   const { moveHistory, setMoveHistory, setHistoryIndex, historyIndex, playSound, currentMove } = useGameInfoContext();
 
@@ -16,8 +12,8 @@ function TicTacToe() {
     if (moveHistory[historyIndex][index] !== null) return;
     playSound && playSound(AudioCategory.MAKE_MOVE);
     const newHistorySegment = [...moveHistory[historyIndex]];
-    newHistorySegment[index] = currentMove;
     const newHistory = [...moveHistory.slice(0, historyIndex + 1), newHistorySegment];
+    newHistorySegment[index] = currentMove;
     setMoveHistory(newHistory);
     setHistoryIndex(historyIndex + 1);
   };

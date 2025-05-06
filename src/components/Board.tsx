@@ -6,7 +6,7 @@ import { useGameInfoContext } from "../context/GameInfoContext";
 
 const Board = ({ onMove, moves }: Board) => {
 
-    const winner = useGameInfoContext().winner;
+    const { winner } = useGameInfoContext();
 
     return (
         <div className={`${styles.Board} margin-center m-v-sm-1 ${winner ? styles.WinnerBoard : ""} `}>
