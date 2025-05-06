@@ -2,9 +2,9 @@ import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import Dialog from '../../components/Dialog'
 import History from '../../components/History';
 import { useGameInfoContext } from '../../context/GameInfoContext';
-import WinnerAnim from '../../components/WinnerAnim';
 import { AudioCategory } from '../../types/index.dt';
 import { useEffect } from 'react';
+import GameOver from '../../components/GameOver';
 
 
 
@@ -44,8 +44,7 @@ function RouteComponent() {
                 &&
                 <Dialog isOpen isModal hasCloseButton={false}>
                     <div>
-                        <h1 className="displaylarge HeadlineTextAnim txt-center">Tie!</h1>
-                        <button type="button" className="headlinelarge" onClick={resetGame}>Replay</button>
+                        <GameOver headline="Tail!" />
                     </div>
                 </Dialog>
             }
@@ -54,10 +53,7 @@ function RouteComponent() {
                 winner
                 &&
                 <Dialog isOpen isModal hasCloseButton={false} >
-                    <WinnerAnim >
-                        <button type="button" onClick={resetGame} className="headlinelarge"
-                        >Replay</button>
-                    </WinnerAnim>
+                    <GameOver headline="Winner" />
                 </Dialog>
             }
 
