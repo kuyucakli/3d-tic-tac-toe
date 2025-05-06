@@ -17,28 +17,24 @@
   transform: translateY(-50%) rotateX(360deg) translateZ(-44px) rotateX(0deg);
 }
 
-.WelcomeScreen button {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  animation: orbit 6s linear;
-  animation-iteration-count: infinite;
-}
-
 .WelcomeScreenOut .WelcomeScreenCurtain {
   animation: screen-out 2s forwards ease-in-out;
 }
 
-@keyframes orbit {
-  from {
-    transform: translate(-50%, -50%) rotateX(0deg) translateZ(44px)
-      rotateX(360deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotateX(360deg) translateZ(44px)
-      rotateX(0deg);
-  }
+.WelcomeScreenOut button {
+  animation: button-out 2s forwards ease-in-out;
+}
+
+.WelcomeScreenOut h1 {
+  transition:
+    opacity 0.8s 0.4s,
+    transform 4s;
+  opacity: 0;
+  transform: scale(0.2);
+}
+
+.WelcomeScreenOut h1 span {
+  animation: orbit 2s ease-in-out forwards !important;
 }
 
 @keyframes screen-out {
@@ -49,5 +45,22 @@
   to {
     height: 0;
     filter: blur(8px);
+  }
+}
+
+@keyframes button-out {
+  from {
+    filter: blur(0px);
+  }
+  to {
+    filter: blur(20px);
+  }
+}
+
+@keyframes orbit {
+  from {
+  }
+  to {
+    transform: translate(-50%, -50%) rotateY(160deg) rotateX(70deg);
   }
 }

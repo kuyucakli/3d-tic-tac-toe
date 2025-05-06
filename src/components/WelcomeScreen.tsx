@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { AnimationEvent, useEffect, useRef, useState } from "react";
 import styles from "./WelcomeScreen.module.css"
 import { useNavigate } from "@tanstack/react-router";
 import { useGameInfoContext } from "../context/GameInfoContext";
+import Logo from "./Logo";
 
 
 const WelcomeScreen = () => {
@@ -11,6 +12,13 @@ const WelcomeScreen = () => {
     const navigate = useNavigate();
     const { resetGame, winner, tie } = useGameInfoContext();
 
+    const handleAnimationEnd = (e: AnimationEvent) => {
+        const animName = e.animationName;
+        if (animName == styles["screen-out"]) {
+            navigate({ to: "/game/$sceneId", params: { sceneId: "play" } });
+        }
+    }
+
     useEffect(() => {
         if (winner || tie) resetGame();
 
@@ -18,15 +26,9 @@ const WelcomeScreen = () => {
 
     return (
         <div ref={elRef} id="welcome-screen" className={`${styles.WelcomeScreen} full-screen ${styles["WelcomeScreen" + scene]}`} >
-            <div className={styles.WelcomeScreenCurtain} onAnimationEnd={(e) => {
-                const animName = e.animationName;
-
-
-                if (animName == styles["screen-out"]) {
-                    navigate({ to: "/game/$sceneId", params: { sceneId: "play" } });
-                }
-            }}></div>
-            <h1 className="displaylarge">Tictactoe</h1>
+            <div className={styles.WelcomeScreenCurtain} onAnimationEnd={handleAnimationEnd}>
+            </div>
+            <Logo />
             <button type="button" onClick={() => {
                 setScene("Out");
             }}>Play with sound</button>

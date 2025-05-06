@@ -13,12 +13,12 @@ Tic tac toe game.
 
 - [] Refine intro
 - [] Dialog Placement
+- [] Current player indicator design
+
 - [] Add winner intro
-- [] Reset game screens ( restart )
 - [] Info Content
 - [] Audio mute
 - [] Remove console.log lines
-- [x] Remove tanstack development component
 - [] Check responsiveness
-
-
+- [x] Reset game screens ( restart )
+- [x] Remove tanstack development component
