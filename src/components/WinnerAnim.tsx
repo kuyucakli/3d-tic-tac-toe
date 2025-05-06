@@ -11,8 +11,8 @@ const WinnerAnim = ({ children }: PropsWithChildren) => {
     winnerMove && playSound && playSound(AudioCategory.WINNER_VOCAL_O);
 
     return (
-        <div className="WinnerAnim">
-            <h1 className="displaylarge">Winner </h1>
+        <div>
+            <h1 className="displaylarge HeadlineTextAnim txt-center">Winner </h1>
             {children}
         </div>
     )

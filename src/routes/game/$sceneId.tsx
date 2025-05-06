@@ -43,16 +43,17 @@ function RouteComponent() {
                 tie
                 &&
                 <Dialog isOpen isModal hasCloseButton={false}>
-                    <h1 className="displaylarge">Tie!!!</h1><button type="button" onClick={resetGame}>Replay</button>
+                    <div>
+                        <h1 className="displaylarge HeadlineTextAnim txt-center">Tie!</h1>
+                        <button type="button" className="headlinelarge" onClick={resetGame}>Replay</button>
+                    </div>
                 </Dialog>
             }
 
             {
                 winner
                 &&
-                <Dialog isOpen isModal hasCloseButton={false} onClose={() => {
-
-                }}>
+                <Dialog isOpen isModal hasCloseButton={false} >
                     <WinnerAnim >
                         <button type="button" onClick={resetGame} className="headlinelarge"
                         >Replay</button>
