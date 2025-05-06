@@ -11,8 +11,6 @@ const WelcomeScreen = () => {
     const elRef = useRef(null);
     const [scene, setScene] = useState("In");
     const navigate = useNavigate();
-    const { playSound } = useGameInfoContext();
-
 
 
     return (
@@ -27,7 +25,6 @@ const WelcomeScreen = () => {
             }}></div>
             <h1 className="displaylarge">Tictactoe</h1>
             <button type="button" onClick={() => {
-                playSound && playSound(AudioCategory.INTRO);
                 setScene("Out");
             }}>Play with sound</button>
         </div>

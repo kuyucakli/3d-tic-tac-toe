@@ -13,6 +13,8 @@ export enum AudioCategory {
     WINNER_STROKE = "winner_stroke",
     MAKE_MOVE = "make_move",
     GAME_OVER = "game_over",
+    WINNER_VOCAL_O = "winner_vocal_o",
+    WINNER_VOCAL_X = "winner_vocal_x",
 }
 
 type Board = {
@@ -27,11 +29,15 @@ type HistoryProps = { moveHistory: Move[][], onHistoryChange: (index: number) =>
 
 type GameInfoContextType = {
     winner: number[] | null;
+    winnerMove: Move | null;
     setMoveHistory: (val: Move[][]) => void;
     moveHistory: Move[][];
     setHistoryIndex: (index: number) => void;
     historyIndex: number;
     playSound?: (key: AudioCategory) => void
+    replayGame: () => void
+    tie: boolean
+    currentMove: Move
 };
 
 export type { Board, SquarePiece, HistoryProps, GameInfoContextType };

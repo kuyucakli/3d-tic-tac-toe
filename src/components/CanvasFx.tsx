@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useGameInfoContext } from "../context/GameInfoContext";
 
-import { drawWinnerStroke } from "../utils";
+import { drawWinnerStroke, clearCanvas } from "../utils";
 import { AudioCategory } from "../types/index.dt";
 
 
@@ -14,7 +14,7 @@ const CanvasFx = () => {
     const { playSound } = useGameInfoContext();
 
     useEffect(() => {
-
+        if (ctx.current) clearCanvas(ctx.current);
         if (winner && ctx.current) {
             const [a, b, c] = winner;
             const centerA = squarePieceCenter(a);

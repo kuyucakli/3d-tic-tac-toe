@@ -1,7 +1,7 @@
 import { Move } from "../types/index.dt";
 
 
-const checkWinner = (moves: Move[]) => {
+const checkWinner = (moves: Move[]): [Move | null, Move[] | null] => {
     const winnerMoves = [
         [0, 1, 2],
         [3, 4, 5],
@@ -16,14 +16,12 @@ const checkWinner = (moves: Move[]) => {
     for (const indexes of winnerMoves) {
         const [a, b, c] = indexes;
 
-
-
         if (moves[a] != null && moves[a] == moves[b] && moves[a] == moves[c]) {
-            return indexes;
+            return [moves[a], indexes];
         }
     }
 
-    return null;
+    return [null, null];
 
 
 }
@@ -69,6 +67,10 @@ function drawBezierSplit(ctx: CanvasRenderingContext2D, x0: number, y0: number, 
 
     ctx.stroke();
     //ctx.closePath();
+}
+
+function clearCanvas(ctx: CanvasRenderingContext2D) {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
 function drawWinnerStroke(ctx: CanvasRenderingContext2D, points: { x: number, y: number }[]) {
@@ -158,4 +160,4 @@ function drawWinnerStroke(ctx: CanvasRenderingContext2D, points: { x: number, y:
 }
 
 
-export { checkWinner, drawBezierSplit, drawWinnerStroke };
+export { checkWinner, drawBezierSplit, drawWinnerStroke, clearCanvas };

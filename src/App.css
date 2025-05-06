@@ -9,18 +9,9 @@ main {
   height: 100vh;
 }
 
-header {
-  max-width: var(--board-max-width);
-  height: 32px;
-  color: #537b7e;
-  border-radius: 16px;
-  background: linear-gradient(180deg, #f0f7fb 0%, #cfe6df 18%, #b5c59b 100%);
-  padding-left: var(--s-md-0);
-  padding-right: var(--s-md-0);
-}
-
 #section-board {
   grid-area: board;
+  align-content: center;
 }
 
 #canvas-fx {
@@ -40,6 +31,22 @@ header {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.WinnerAnim h1 {
+  opacity: 0;
+  animation: winner-anim-title 1s 0.5s ease-in-out forwards;
+}
+
+@keyframes winner-anim-title {
+  0% {
+    transform: scale(4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 1;
   }
 }
 

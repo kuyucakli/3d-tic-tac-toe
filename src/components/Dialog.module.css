@@ -16,6 +16,19 @@
   z-index: var(--z-dialog);
 }
 
+.Dialog[data-is-modal="true"] {
+  margin: auto;
+  background-color: transparent;
+  width: max-content;
+  height: max-content;
+  overflow: visible;
+}
+
+.Dialog[data-is-modal="true"]::backdrop {
+  background-color: rgba(129, 145, 134, 0.5);
+  mix-blend-mode: difference;
+}
+
 .DialogOpen {
   /* animation: slide-in 0.4s ease-in-out forwards;
   transform: translate(0, calc(100vh)); */
@@ -28,7 +41,6 @@
 
 .Dialog::backdrop {
   background-color: rgba(173, 228, 189, 0.4);
-  filter: blur();
 }
 
 .Dialog li {
