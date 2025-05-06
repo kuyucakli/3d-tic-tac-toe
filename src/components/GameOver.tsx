@@ -3,8 +3,8 @@ import { AudioCategory, Move } from "../types/index.dt";
 import { useGameInfoContext } from "../context/GameInfoContext";
 
 const GameOver = ({ children, headline }: PropsWithChildren & { headline: string }) => {
-    const { playSound, winnerMove, resetGame } = useGameInfoContext();
-    if (playSound) {
+    const { playSound, winnerMove, resetGame, tie } = useGameInfoContext();
+    if (playSound && !tie) {
         winnerMove == Move.X ? playSound(AudioCategory.WINNER_VOCAL_X) : playSound(AudioCategory.WINNER_VOCAL_O);
     }
 
