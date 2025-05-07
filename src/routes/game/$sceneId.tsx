@@ -6,6 +6,7 @@ import { AudioCategory } from '../../types/index.dt';
 import { useEffect } from 'react';
 import GameOver from '../../components/GameOver';
 import { FrmSettings } from '../../components/FrmSettings';
+import { IconGithub } from '../../components/Icons';
 
 
 
@@ -35,6 +36,12 @@ function RouteComponent() {
         <>
 
             <Dialog isOpen={sceneId != "play" ? true : false} onClose={handleDialogClose}>
+                <p>
+
+                    <a href="https://github.com/kuyucakli/3d-tic-tac-toe" target="_blank" className="labelsmall">
+                        <IconGithub /> Github
+                    </a>
+                </p>
                 {sceneId == "info" && <><h2 className="titlelarge">Info</h2>🎮 About This Project
 
 
