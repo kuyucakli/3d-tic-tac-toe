@@ -2,7 +2,6 @@ import React from 'react';
 import { Move } from '../types/index.dt.ts';
 import styles from './Board.module.css';
 import { useGameInfoContext } from '../context/GameInfoContext.tsx';
-import { IconWest } from './Icons.tsx';
 
 interface BoardHeaderProps {
     currentMove: Move;
