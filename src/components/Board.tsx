@@ -1,7 +1,7 @@
 import type { Board } from "../types/index.dt";
 import CanvasFx from "./CanvasFx";
 import SquarePiece from "./SquarePiece";
-import styles from "./board.module.css";
+import styles from "./Board.module.css";
 import { useGameInfoContext } from "../context/GameInfoContext";
 
 const Board = ({ onMove, moves }: Board) => {
