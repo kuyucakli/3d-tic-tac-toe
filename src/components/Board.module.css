@@ -1,6 +1,7 @@
 .Board {
   max-width: var(--board-max-width);
   position: relative;
+  z-index: var(--z-borad);
   aspect-ratio: 1;
   border-radius: 16px;
   background: linear-gradient(
