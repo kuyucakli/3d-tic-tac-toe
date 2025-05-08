@@ -4,6 +4,7 @@
   display: grid;
   place-items: center;
   transform-style: preserve-3d;
+  transform: translateZ(0);
 }
 .WelcomeScreenCurtain {
   content: "";
