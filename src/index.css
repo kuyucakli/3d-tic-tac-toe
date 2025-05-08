@@ -25,6 +25,8 @@
   body,
   html {
     min-height: 100vh;
+    top: 0;
+    bottom: 0;
   }
   body {
     background: linear-gradient(
