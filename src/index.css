@@ -83,6 +83,7 @@
 
   #root {
     container: root-container / inline-size;
+    height: 100vh;
   }
 }
 
