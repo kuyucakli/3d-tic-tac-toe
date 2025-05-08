@@ -2,6 +2,8 @@
   max-width: var(--board-max-width);
   position: relative;
   z-index: var(--z-borad);
+  transform: translateZ(0px);
+  -webkit-transform: translateZ(0px);
   aspect-ratio: 1;
   border-radius: 16px;
   background: linear-gradient(
