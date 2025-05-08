@@ -12,6 +12,11 @@
   right: 0;
   transition: transform 0.4s ease-in-out;
   z-index: var(--z-dialog);
+
+  --translate-slide-in-0: translate(100%, 0);
+  --translate-slide-in-100: translate(0, 0);
+  --translate-slide-out-0: translate(0, 0);
+  --translate-slide-out-100: translate(100%, 0);
 }
 
 .Dialog[data-is-modal="true"] {
@@ -56,19 +61,19 @@
 
 @keyframes slide-in {
   0% {
-    transform: translate(100%, 0);
+    transform: var(--translate-slide-in-0);
   }
   100% {
-    transform: translate(0, 0);
+    transform: var(--translate-slide-in-100);
   }
 }
 
 @keyframes slide-out {
   0% {
-    transform: translate(0, 0);
+    transform: var(--translate-slide-out-0);
   }
   100% {
-    transform: translate(100%, 0);
+    transform: var(--translate-slide-out-100);
   }
 }
 
@@ -80,22 +85,9 @@
     left: 0;
     transition: transform 0.4s ease-in-out;
     z-index: var(--z-dialog);
-  }
-  @keyframes slide-in {
-    0% {
-      transform: translate(0, 100%);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
-  }
-
-  @keyframes slide-out {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(0, 100%);
-    }
+    --translate-slide-in-0: translate(0, 100%);
+    --translate-slide-in-100: translate(0, 0);
+    --translate-slide-out-0: translate(0, 0);
+    --translate-slide-out-100: translate(0, 100%);
   }
 }
