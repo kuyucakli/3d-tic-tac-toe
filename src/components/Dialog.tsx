@@ -1,10 +1,19 @@
 import { PropsWithChildren, useEffect, useRef } from "react";
 import styles from "./Dialog.module.css";
 import { IconClose } from "./Icons";
+import { useClickOutside } from "../hooks/useClickOutside";
 
-const Dialog = ({ isOpen, isModal = false, hasCloseButton = true, onClose, children }: PropsWithChildren & { isOpen: boolean, onClose?: () => void, isModal?: boolean, hasCloseButton?: boolean }) => {
-    const ref = useRef<HTMLDialogElement>(null)
+const Dialog = (
+    { isOpen, isModal = false, hasCloseButton = true, onClose, children }: PropsWithChildren & { isOpen: boolean, onClose?: () => void, isModal?: boolean, hasCloseButton?: boolean }
+) => {
+    const ref = useRef<HTMLDialogElement>(null);
+    useClickOutside(ref, () => {
 
+        if (isOpen) {
+            console.log(isOpen)
+        }
+
+    });
     const handleAnimationEnd = (e: AnimationEvent) => {
         const animName = e.animationName;
 
@@ -13,8 +22,11 @@ const Dialog = ({ isOpen, isModal = false, hasCloseButton = true, onClose, child
         }
     }
 
+
+
     useEffect(() => {
         ref.current?.addEventListener("animationend", handleAnimationEnd);
+
         if (isOpen) {
             isModal ? ref.current?.showModal() : ref.current?.show();
             ref.current?.classList.add(styles.DialogOpen);

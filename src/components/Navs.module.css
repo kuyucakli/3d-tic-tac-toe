@@ -20,3 +20,17 @@
 .NavSecondary {
   text-transform: capitalize;
 }
+
+@container root-container ( width < 600px) {
+  .NavSecondary {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 16px 16px 0px 0px;
+    border: 1px solid #000;
+    writing-mode: unset;
+    width: 100%;
+    height: auto;
+    padding: 8px 16px 16px;
+  }
+}

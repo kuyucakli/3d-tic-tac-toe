@@ -11,8 +11,9 @@ const NavSecondary = () => {
     return (
         <nav id="nav-secondary" className={`${styles.NavSecondary} bodymedium`}>
             <ul>
-                {links.map((l) => (
+                {links.map((l, i) => (
                     <Link
+                        key={i}
                         to={l.to}
                         params={l.params}
                         activeProps={{

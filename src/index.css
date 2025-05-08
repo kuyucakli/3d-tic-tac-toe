@@ -74,6 +74,12 @@
     --z-welcome-screen: 1000;
     --z-canvas-fx: 1;
     --z-dialog: 998;
+
+    --break-point-1: 600px;
+  }
+
+  #root {
+    container: root-container / inline-size;
   }
 }
 
