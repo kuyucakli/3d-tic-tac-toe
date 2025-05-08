@@ -28,7 +28,13 @@
     overflow: auto;
   }
   body {
-    background: linear-gradient(181deg, #6a5f31 7.78%, #886a71 40.03%, #eae368 70.88%, #e3e2a5 93.03%);
+    background: linear-gradient(
+      181deg,
+      #94a07a 7.78%,
+      #886a71 40.03%,
+      #eae368 70.88%,
+      #e3e2a5 93.03%
+    );
 
     background-blend-mode: plus-lighter, normal;
   }
