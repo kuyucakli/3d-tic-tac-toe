@@ -84,7 +84,7 @@
 
   #root {
     container: root-container / inline-size;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0;
     bottom: 0;
