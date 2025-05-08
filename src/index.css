@@ -22,8 +22,11 @@
 }
 
 @layer base {
-  body {
+  body,
+  html {
     min-height: 100vh;
+  }
+  body {
     background: linear-gradient(
       181deg,
       #ffd52e 7.78%,
