@@ -28,8 +28,7 @@ const WelcomeScreen = () => {
         <div ref={elRef} id="welcome-screen" className={`${styles.WelcomeScreen} full-screen ${styles["WelcomeScreen" + scene]}`}
             onAnimationEnd={handleAnimationEnd}
         >
-            {/* <div className={styles.WelcomeScreenCurtain} onAnimationEnd={handleAnimationEnd}>
-            </div> */}
+
             <Logo />
             <button type="button" onClick={() => {
                 setScene("Out");
